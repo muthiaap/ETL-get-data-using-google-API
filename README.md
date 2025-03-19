@@ -4,11 +4,11 @@
 
 ### Overview
 
-This project implements an ETL (Extract, Transform, Load) pipeline that extracts data from a Google Sheet and an Excel file stored in Google Drive, processes the data, and loads it into an SQLite database.
+This project implements an ETL (Extract, Transform, Load) pipeline that extracts data from a Google Sheet stored in Google Drive, processes the data, and loads it into an SQLite database.
 
 ### Features
 
-1. Extract data from Google Sheets and an Excel file downloaded from Google Drive.
+1. Extract data from Google Sheets stored in Google Drive.
 
 2. Transform data by renaming columns, standardizing date formats, formatting phone numbers, and removing duplicates.
 
