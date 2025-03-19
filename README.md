@@ -29,20 +29,17 @@ This project implements an ETL (Extract, Transform, Load) pipeline that extracts
 
 1. Clone this repository and install dependencies:
 ```
-git clone https://github.com/your-repo.git
-cd project-folder
+git clone https://github.com/muthiaap/ETL-get-data-using-google-API.git
+cd ETL-get-data-using-google-API
 pip install -r requirements.txt
 ```
 
 2. Configuration: update the following variables in main.py.
 ```
-SHEET_URL = "YOUR_GOOGLE_SHEET_URL"
-SHEET_NAME = "data"
-CREDS_PATH = "config/credentials.json"
-DB_PATH = "data/etl_data.db"
-TABLE_NAME = "born_date_data"
-DRIVE_FILE_ID = "YOUR_DRIVE_FILE_ID"
-SAVE_PATH = "./data/"
+sheet_url = "URL"
+creds_path = "./config/credentials"
+db_path = "./database/etl_data.db"
+table_db_name = "born_date_data"
 ```
 
 3. Dependencies: install project dependencies.
