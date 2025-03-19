@@ -5,7 +5,7 @@ from ETL_born_date_data import (
 def main():
     """Main ETL Process"""
     SHEET_NAME = "data"  
-    CREDS_PATH = "./config/elevated-valve-454202-n0-bf831559f8c6.json" 
+    CREDS_PATH = "./config/credentials.json" 
     DB_PATH = "./database/etl_data.db"
     TABLE_NAME = "born_date_data"
     DRIVE_FILE_ID = "1qFFZXFNsVLargf5AtRCbR0vPeQRjeoz8" 
