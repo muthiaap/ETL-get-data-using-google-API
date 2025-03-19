@@ -14,9 +14,11 @@ def extract_data(sheet_url, creds_file):
     workbook = client.open_by_url(sheet_url)
     sheet = workbook.worksheet("data")
 
-    # Get all values and skip the first row
-    data = sheet.get_all_values()[1:]  # Skip header row
-    df = pd.DataFrame(data, columns=data[0])  # Use first row as columns
+    # Get all values
+    data = sheet.get_all_values()
+
+    # Use second row as headers and extract actual data
+    df = pd.DataFrame(data[2:], columns=data[1])  # Skip first row, use second row as header
 
     return df
 
@@ -26,8 +28,10 @@ def transform_data(df):
     df.rename(columns={"born_day": "born_date"}, inplace=True)
 
     # Standardize date format
-    df["born_date"] = pd.to_datetime(df["born_date"], errors='coerce')
-    df["born_date"] = df["born_date"].dt.strftime("%d-%m-%Y")  # Keep as string for SQLite compatibility
+    df["born_date"] = pd.to_datetime(df["born_date"], format="mixed", errors="coerce")
+
+    # Convert to required format (DD-MM-YYYY)
+    df["born_date"] = df["born_date"].dt.strftime("%d-%m-%Y")  
 
     # Standardize phone number format
     def format_phone_number(phone):
@@ -38,7 +42,9 @@ def transform_data(df):
             return "+" + phone
         elif phone.startswith("0"):
             return "+62" + phone[1:]
-        return phone  # Keep as is if it's already formatted correctly
+        elif phone.startswith("8"):
+            return "+62" + phone
+        return phone
     
     df["phone_number"] = df["phone_number"].astype(str).apply(format_phone_number)
 
