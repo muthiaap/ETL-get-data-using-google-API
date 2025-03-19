@@ -34,12 +34,7 @@ cd project-folder
 pip install -r requirements.txt
 ```
 
-2. Run the ETL process using:
-```
-python main.py
-```
-
-3. Configuration: update the following variables in main.py.
+2. Configuration: update the following variables in main.py.
 ```
 SHEET_URL = "YOUR_GOOGLE_SHEET_URL"
 SHEET_NAME = "data"
@@ -50,11 +45,15 @@ DRIVE_FILE_ID = "YOUR_DRIVE_FILE_ID"
 SAVE_PATH = "./data/"
 ```
 
-4. Dependencies: install project dependencies.
+3. Dependencies: install project dependencies.
 ```
 pip install -r requirements.txt
 ```
 
+4. Run the ETL process using:
+```
+python main.py
+```
 
 ### Author
 
